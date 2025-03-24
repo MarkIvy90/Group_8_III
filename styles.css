@@ -3,7 +3,16 @@
 body {
   background: #e0e0e0; /* Light background for better contrast */
   font-family: 'Poppins', sans-serif; /* Ensure sans-serif font is applied */
+  /* Ensure portrait orientation */
+  width: 100%; /* Adjust width to fill available space */
+  height: 100%; /* Adjust height to fill available space */
+
+  /* transform: rotate(90deg); */ /* Rotate for portrait view */
+
+  transform-origin: left top; /* Set origin for rotation */
+  overflow: hidden; /* Prevent overflow */
 }
+
 
 .control-panel {
   position: fixed;
