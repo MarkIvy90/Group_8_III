@@ -10,9 +10,8 @@ body {
   /* transform: rotate(90deg); */ /* Rotate for portrait view */
 
   transform-origin: left top; /* Set origin for rotation */
-  overflow: hidden; /* Prevent overflow */
+  /* Removed overflow: hidden; to allow scrolling */
 }
-
 
 .control-panel {
   position: fixed;
