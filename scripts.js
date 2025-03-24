@@ -10,7 +10,10 @@ document.getElementById('action3').addEventListener('click', function() {
     alert('User clicked!');
 });
 
+document.getElementById('check-status').disabled = false; // Enable button by default
+
 document.getElementById('check-status').addEventListener('click', function() {
+
     const confirmation = document.getElementById('scan-confirmation');
     confirmation.style.display = 'block'; // Show the confirmation dialog
 
@@ -37,7 +40,9 @@ document.getElementById('check-status').addEventListener('click', function() {
             progress = 100; // Ensure progress is complete
             updateProgressBar(progress); // Final update
 
-            const problems = [
+        const problems = [
+            'Scanning...', // Simulate scanning
+
                 'Overheating', 
                 'Low Disk Space', 
                 'Outdated Drivers', 
@@ -69,7 +74,8 @@ document.getElementById('check-status').addEventListener('click', function() {
             const randomProblemIndex = Math.floor(Math.random() * problems.length);
             const randomSolutionIndex = Math.floor(Math.random() * solutions.length);
             
-            document.getElementById('status-message').textContent = 'PC Status Checked!';
+            document.getElementById('status-message').textContent = 'Scanning complete! PC Status Checked!';
+
             document.getElementById('problems-list').innerHTML = `<li>${problems[randomProblemIndex]}</li>`;
             document.getElementById('solutions-list').innerHTML = `<li>${solutions[randomSolutionIndex]}</li>`;
             confirmation.style.display = 'none'; // Hide the confirmation dialog
@@ -77,6 +83,8 @@ document.getElementById('check-status').addEventListener('click', function() {
     };
 
     document.getElementById('confirm-no').onclick = function() {
+        document.getElementById('check-status').disabled = false; // Re-enable button if no is clicked
+
         confirmation.style.display = 'none'; // Hide the confirmation dialog
     };
 });
