@@ -1,93 +1,83 @@
- @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed'); // Debugging statement
 
-body {
-  background: linear-gradient(to right, #d3d3d3, #ffcccb); /* Gradient from gray to light pink */
+    const checkStatusButton = document.getElementById('check-status');
+    if (checkStatusButton) {
+        console.log('Check PC Status button found'); // Debugging statement
 
-  font-family: 'Poppins', sans-serif; /* Ensure sans-serif font is applied */
-  width: 100%; /* Adjust width to fill available space */
-  height: 100%; /* Adjust height to fill available space */
-  transform-origin: left top; /* Set origin for rotation */
-}
+        checkStatusButton.addEventListener('click', function() {
+            console.log('Check PC Status button clicked!'); // Test log
+            const confirmation = document.getElementById('scan-confirmation');
+            confirmation.style.display = 'block'; // Show the confirmation dialog
 
-.control-panel {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  padding: 20px;
-  background: #f9f9f9;
-  border-right: 1px solid #ddd;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
+            document.getElementById('confirm-yes').onclick = function() {
+                document.getElementById('status-message').textContent = 'Checking PC status...';
+                
+                let progress = 0; // Initialize progress
+                const progressBar = document.getElementById('progress-bar');
+                progressBar.style.display = 'block'; // Show the progress bar
 
-.control-panel h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+                const interval = setInterval(function() {
+                    progress += 10; // Increment progress
+                    updateProgressBar(progress); // Update the progress bar
+                    if (progress >= 100) {
+                        clearInterval(interval); // Stop the interval when complete
+                    }
+                }, 300); // Update every 300ms
 
-.control-panel button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  background: #4158d0;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s; /* Added transform transition */
-}
+                setTimeout(function() {
+                    progress = 100; // Ensure progress is complete
+                    updateProgressBar(progress); // Final update
 
-.control-panel button:hover {
-  background: #c850c0; /* Updated hover color */
-  transform: scale(1.05); /* Added scale effect on hover */
-}
+const problems = [
+    'Overheating', 
+    'Low Disk Space', 
+    'Outdated Drivers', 
+    'No Issues Detected', 
+    'Malware Detected', 
+    'Hardware Failure', 
+    'Network Connectivity Issues', 
+    'Insufficient RAM',
+    'Corrupted System Files',
+    'Power Supply Issues',
+    'Graphics Card Failure',
+    'Hard Drive Failure',
+    'Software Conflicts',
+    'Overclocking Issues',
+    'BIOS Settings Misconfiguration',
+    'Insufficient Cooling' // New problem
+];
 
-.wrapper {
-  margin-left: 270px;
-  padding: 20px;
-}
+const solutions = [
+    'Free up space', 
+    'Update drivers', 
+    'No action needed', 
+    'Run a malware scan', 
+    'Check hardware connections', 
+    'Restart your router', 
+    'Upgrade your RAM',
+    'Replace the hard drive', // New solution
+    'Check graphics card connections', // New solution
+    'Clean the cooling system', // New solution
+    'Run a full antivirus scan' // New solution
+];
 
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-}
+                    
+                    const randomProblemIndex = Math.floor(Math.random() * problems.length);
+                    const randomSolutionIndex = Math.floor(Math.random() * solutions.length);
+                    
+                    document.getElementById('status-message').textContent = 'Scanning complete! PC Status Checked!';
+                    document.getElementById('problems-list').innerHTML = `<li>${problems[randomProblemIndex]}</li>`;
+                    document.getElementById('solutions-list').innerHTML = `<li>${solutions[randomSolutionIndex]}</li>`;
+                    confirmation.style.display = 'none'; // Hide the confirmation dialog
+                }, 15000); // Updated to 15 seconds
+            };
 
-.pc-status {
-  margin-top: 20px;
-  padding: 15px;
-  background: #ffffff; /* Keeping it white */
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.pc-status button {
-  background: #4158d0; /* Button background color */
-  color: white; /* Button text color */
-  border: none; /* No border */
-  padding: 10px 15px; /* Padding for button */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background 0.3s; /* Smooth background transition */
-}
-
-.pc-status button:hover {
-  background: #c850c0; /* Hover color for buttons */
-}
-
-.detected-problems, .suggested-solutions {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f9f9f9; /* Added distinct background color */
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  background: #4158d0; /* Added background color */
-  color: white; /* Ensured text is visible */
-  padding: 10px; /* Added padding for better spacing */
-}
+            document.getElementById('confirm-no').onclick = function() {
+                confirmation.style.display = 'none'; // Hide the confirmation dialog
+            };
+        });
+    } else {
+        console.error('Check PC Status button not found'); // Error log if button is not found
+    }
+});
