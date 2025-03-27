@@ -1,90 +1,93 @@
-document.getElementById('action1').addEventListener('click', function() {
-    alert('User Settings clicked!');
-});
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
-document.getElementById('action2').addEventListener('click', function() {
-    alert('Settings clicked!');
-});
+body {
+  background: linear-gradient(to right, #d3d3d3, #ffcccb); /* Gradient from gray to light pink */
 
-document.getElementById('action3').addEventListener('click', function() {
-    alert('User clicked!');
-});
+  font-family: 'Poppins', sans-serif; /* Ensure sans-serif font is applied */
+  width: 100%; /* Adjust width to fill available space */
+  height: 100%; /* Adjust height to fill available space */
+  transform-origin: left top; /* Set origin for rotation */
+}
 
-document.getElementById('check-status').disabled = false; // Enable button by default
+.control-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  background: #f9f9f9;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
-document.getElementById('check-status').addEventListener('click', function() {
+.control-panel h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 
-    const confirmation = document.getElementById('scan-confirmation');
-    confirmation.style.display = 'block'; // Show the confirmation dialog
+.control-panel button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: #4158d0;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s; /* Added transform transition */
+}
 
-    document.getElementById('confirm-yes').onclick = function() {
-        document.getElementById('status-message').textContent = 'Checking PC status...';
-        
-        let progress = 0; // Initialize progress
-        const progressBar = document.getElementById('progress-bar');
-        progressBar.style.display = 'block'; // Show the progress bar
+.control-panel button:hover {
+  background: #c850c0; /* Updated hover color */
+  transform: scale(1.05); /* Added scale effect on hover */
+}
 
-        const interval = setInterval(function() {
-            progress += 10; // Increment progress
-            updateProgressBar(progress); // Update the progress bar
-            if (progress >= 100) {
-                clearInterval(interval); // Stop the interval when complete
-            }
-        }, 300); // Update every 300ms
+.wrapper {
+  margin-left: 270px;
+  padding: 20px;
+}
 
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
 
-        setTimeout(function() {
-            progress = 100; // Ensure progress is complete
-            updateProgressBar(progress); // Final update
+.pc-status {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffffff; /* Keeping it white */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-            progress = 100; // Ensure progress is complete
-            updateProgressBar(progress); // Final update
+.pc-status button {
+  background: #4158d0; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s; /* Smooth background transition */
+}
 
-        const problems = [
-            'Scanning...', // Simulate scanning
+.pc-status button:hover {
+  background: #c850c0; /* Hover color for buttons */
+}
 
-                'Overheating', 
-                'Low Disk Space', 
-                'Outdated Drivers', 
-                'No Issues Detected', 
-                'Malware Detected', 
-                'Hardware Failure', 
-                'Network Connectivity Issues', 
-            'Insufficient RAM',
-            'Corrupted System Files',
-            'Power Supply Issues',
-            'Graphics Card Failure',
-            'Hard Drive Failure',
-            'Software Conflicts',
-            'Overclocking Issues',
-            'BIOS Settings Misconfiguration'
+.detected-problems, .suggested-solutions {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9; /* Added distinct background color */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-            ];
-            const solutions = [
-                'Clean the fans', 
-                'Free up space', 
-                'Update drivers', 
-                'No action needed', 
-                'Run a malware scan', 
-                'Check hardware connections', 
-                'Restart your router', 
-                'Upgrade your RAM'
-            ];
-            
-            const randomProblemIndex = Math.floor(Math.random() * problems.length);
-            const randomSolutionIndex = Math.floor(Math.random() * solutions.length);
-            
-            document.getElementById('status-message').textContent = 'Scanning complete! PC Status Checked!';
-
-            document.getElementById('problems-list').innerHTML = `<li>${problems[randomProblemIndex]}</li>`;
-            document.getElementById('solutions-list').innerHTML = `<li>${solutions[randomSolutionIndex]}</li>`;
-            confirmation.style.display = 'none'; // Hide the confirmation dialog
-        }, 2000);
-    };
-
-    document.getElementById('confirm-no').onclick = function() {
-        document.getElementById('check-status').disabled = false; // Re-enable button if no is clicked
-
-        confirmation.style.display = 'none'; // Hide the confirmation dialog
-    };
-});
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  background: #4158d0; /* Added background color */
+  color: white; /* Ensured text is visible */
+  padding: 10px; /* Added padding for better spacing */
+}
