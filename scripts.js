@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const settingsButton = document.getElementById('action2');
+    if (settingsButton) {
+        settingsButton.addEventListener('click', function() {
+            window.location.href = 'settings.html'; // Redirect to settings page
+
+        });
+    }
+
     console.log('DOM fully loaded and parsed'); // Debugging statement
 
     const checkStatusButton = document.getElementById('check-status');
     if (checkStatusButton) {
-        console.log('Check PC Status button found'); // Debugging statement
+    const userButton = document.getElementById('action3');
+    if (userButton) {
+        userButton.addEventListener('click', function() {
+            window.location.href = 'user.html'; // Redirect to user page
+        });
+    }
+    console.log('Check PC Status button found'); // Debugging statement
+
 
         checkStatusButton.addEventListener('click', function() {
             console.log('Check PC Status button clicked!'); // Test log
