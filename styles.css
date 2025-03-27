@@ -1,8 +1,7 @@
- @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 body {
-  background: linear-gradient(to right, #d3d3d3, #ffcccb); /* Gradient from gray to light pink */
-
+  background: linear-gradient(to right, #e0c3fc, #d3d3d3, #ffcccb); /* Gradient from light purple to gray to light pink */
   font-family: 'Poppins', sans-serif; /* Ensure sans-serif font is applied */
   width: 100%; /* Adjust width to fill available space */
   height: 100%; /* Adjust height to fill available space */
