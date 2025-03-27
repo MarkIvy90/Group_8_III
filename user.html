@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="user-container" style="padding: 20px; background: #ffffff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+
+        <h1 style="color: #333;">User Information</h1>
+
+        <h2 style="color: #4158d0;">System Specific Information</h2>
+
+        <p id="systemInfo">Loading system information...</p>
+        
+        <h2 style="color: #4158d0;">Recent Scans</h2>
+
+        <ul id="recentScans">
+            <li>No recent scans available.</li>
+        </ul>
+        
+        <button onclick="goBack()" style="margin-top: 20px; background: #4158d0; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s;">Back to Dashboard</button>
+
+    </div>
+    <script>
+        function goBack() {
+            window.location.href = 'homepage.html'; // Redirect back to the homepage
+        }
+
+        // Function to fetch and display system information
+        function fetchSystemInfo() {
+            // Placeholder for actual system information retrieval logic
+            const systemInfo = "OS: Windows 11, CPU: AMD Ryzen 5 5500G, Motherboard: ASUS ROG Strix B550-F, RAM: 16GB"; // Example data
+
+            document.getElementById('systemInfo').textContent = systemInfo;
+        }
+
+        // Function to fetch and display recent scans
+        function fetchRecentScans() {
+            // Placeholder for actual recent scans retrieval logic
+            const scans = ["Scan 1: No issues detected", "Scan 2: Malware detected"];
+            const recentScansList = document.getElementById('recentScans');
+            recentScansList.innerHTML = ""; // Clear existing list
+            scans.forEach(scan => {
+                const li = document.createElement('li');
+                li.textContent = scan;
+                recentScansList.appendChild(li);
+            });
+        }
+
+        // Call functions to populate data
+        fetchSystemInfo();
+        fetchRecentScans();
+    </script>
+</body>
+</html>

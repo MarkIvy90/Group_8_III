@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Settings</h1>
+        <h2>Scanning Settings</h2>
+        <p>Adjust your scanning preferences here.</p>
+        <label>
+            <input type="checkbox" id="enableScanning" checked>
+            Enable Scanning
+        </label>
+        <label for="scanInterval">Scan Interval:</label>
+        <select id="scanInterval">
+            <option value="none">None</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+
+        </select>
+        
+        <h2>Webpage Adjustments</h2>
+        <p>Customize your webpage settings here.</p>
+        <label for="themeSelect">Select Theme:</label>
+        <select id="themeSelect">
+            <option value="none">None</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+
+        </select>
+        <label>
+            <input type="checkbox" id="enableNotifications" checked>
+            Enable Notifications
+        </label>
+
+        
+        <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+    <script>
+        function goBack() {
+            window.location.href = 'homepage.html'; // Redirect back to the homepage
+        }
+    </script>
+</body>
+</html>
