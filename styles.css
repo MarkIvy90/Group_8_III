@@ -83,10 +83,40 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  background: #4158d0; /* Added background color */
-  color: white; /* Ensured text is visible */
-  padding: 10px; /* Added padding for better spacing */
+.settings-container {
+  padding: 20px; /* Padding for the settings container */
+  background: #ffffff; /* White background for the settings page */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.settings-container h1 {
+  font-size: 28px; /* Larger font size for the main heading */
+  color: #333; /* Dark color for better readability */
+}
+
+.settings-container h2 {
+  font-size: 22px; /* Font size for subheadings */
+  margin-top: 20px; /* Space above subheadings */
+  color: #4158d0; /* Color for subheadings */
+}
+
+.settings-container p {
+  font-size: 16px; /* Font size for paragraphs */
+  color: #666; /* Lighter color for text */
+}
+
+.settings-container button {
+  margin-top: 20px; /* Space above the button */
+  background: #4158d0; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s; /* Smooth background transition */
+}
+
+.settings-container button:hover {
+  background: #c850c0; /* Hover color for buttons */
 }
